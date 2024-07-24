@@ -7,14 +7,14 @@ abstract class MetaGameEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class MoveMade extends MetaGameEvent {
+class BoxClicked extends MetaGameEvent {
   final int row;
   final int col;
 
-  const MoveMade(this.row, this.col);
+  const BoxClicked(this.row, this.col);
 
   @override
   List<Object> get props => [row, col];
 }
 
-class ResetGame extends MetaGameEvent {}
+class ResetMetaGame extends MetaGameEvent {}

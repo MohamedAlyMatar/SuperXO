@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:super_xo/bloc/game_bloc.dart';
-import 'package:super_xo/bloc/game_event.dart';
-import 'package:super_xo/bloc/game_state.dart';
+import 'package:super_xo/bloc/meta_game_bloc.dart';
+import 'package:super_xo/bloc/meta_game_event.dart';
+import 'package:super_xo/bloc/meta_game_state.dart';
 import 'package:super_xo/core/customs/my_appbar.dart';
 import 'package:super_xo/views/game_view.dart';
 
@@ -13,7 +13,7 @@ class MetaGameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: "Meta Game", showBackButton: true),
-      body: BlocBuilder<GameBloc, GameState>(
+      body: BlocBuilder<MetaGameBloc, MetaGameState>(
         builder: (context, state) {
           return Center(
             child: Column(
@@ -21,7 +21,7 @@ class MetaGameView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -40,13 +40,19 @@ class MetaGameView extends StatelessWidget {
                         GestureDetector(
                           onTap: state.game.board[i][j] == '' &&
                                   !state.game.isGameOver
-                              ? () {
-                                  // BlocProvider.of<GameBloc>(context)
-                                  //     .add(MoveMade(i, j));
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => GameView()));
+                              ? () async {
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          GameView(i: i, j: j),
+                                    ),
+                                  );
+                                  if (result != null && result is String) {
+                                    context
+                                        .read<MetaGameBloc>()
+                                        .add(BoxClicked(i, j));
+                                  }
                                 }
                               : null,
                           child: Container(
@@ -70,7 +76,7 @@ class MetaGameView extends StatelessWidget {
                       style: TextStyle(fontSize: 24)),
                 ElevatedButton(
                   onPressed: () {
-                    BlocProvider.of<GameBloc>(context).add(ResetGame());
+                    context.read<MetaGameBloc>().add(ResetMetaGame());
                   },
                   child: const Text('Reset Game'),
                 ),

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:super_xo/bloc/game_bloc.dart";
+import "package:super_xo/bloc/meta_game_bloc.dart";
 import "package:super_xo/repositories/game_repo.dart";
 import "package:super_xo/views/home_view.dart";
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GameBloc(GameRepo()),
         ),
+        BlocProvider(create: (context) => MetaGameBloc(GameRepo()))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

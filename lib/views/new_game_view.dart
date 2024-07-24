@@ -29,7 +29,12 @@ class NewGameView extends StatelessWidget {
           children: [
             data.mybutton(data2.offlinePlayers, () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => GameView()));
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => GameView(
+                            i: 1,
+                            j: 1,
+                          )));
             }),
             data.mybutton(data2.VS_AI, () {
               Navigator.push(context,

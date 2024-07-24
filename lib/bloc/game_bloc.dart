@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:super_xo/bloc/game_event.dart';
 import 'package:super_xo/bloc/game_state.dart';
 import 'package:super_xo/repositories/game_repo.dart';
