@@ -32,8 +32,8 @@ class NewGameView extends StatelessWidget {
                   context, MaterialPageRoute(builder: (context) => GameView()));
             }),
             data.mybutton(data2.VS_AI, () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => GameView()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MetaGameView()));
             }),
             data.mybutton(data2.joinRoom, () {}),
           ],

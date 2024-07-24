@@ -4,6 +4,7 @@ import 'package:super_xo/bloc/game_bloc.dart';
 import 'package:super_xo/bloc/game_event.dart';
 import 'package:super_xo/bloc/game_state.dart';
 import 'package:super_xo/core/customs/my_appbar.dart';
+import 'package:super_xo/views/game_view.dart';
 
 class MetaGameView extends StatelessWidget {
   const MetaGameView({super.key});
@@ -40,19 +41,24 @@ class MetaGameView extends StatelessWidget {
                           onTap: state.game.board[i][j] == '' &&
                                   !state.game.isGameOver
                               ? () {
-                                  BlocProvider.of<GameBloc>(context)
-                                      .add(MoveMade(i, j));
+                                  // BlocProvider.of<GameBloc>(context)
+                                  //     .add(MoveMade(i, j));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => GameView()));
                                 }
                               : null,
                           child: Container(
                             width: 100,
                             height: 100,
                             margin: EdgeInsets.all(4.0),
-                            color: Colors.white,
+                            color: Colors.black87,
                             child: Center(
                               child: Text(
                                 state.game.board[i][j],
-                                style: const TextStyle(fontSize: 32),
+                                style: const TextStyle(
+                                    fontSize: 32, color: Colors.white),
                               ),
                             ),
                           ),
