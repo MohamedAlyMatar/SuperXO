@@ -13,7 +13,7 @@ class GameRepo {
         game.board.map((row) => List<String>.from(row)));
     if (newBoard[row][col] == '' && !game.isGameOver) {
       newBoard[row][col] = game.currentPlayer;
-      final winner = _checkWinner(newBoard);
+      final winner = checkWinner(newBoard);
       return game.copyWith(
         board: newBoard,
         currentPlayer: game.currentPlayer == 'X' ? 'O' : 'X',
@@ -31,7 +31,7 @@ class GameRepo {
     );
   }
 
-  String _checkWinner(List<List<String>> board) {
+  String checkWinner(List<List<String>> board) {
     // Check rows
     for (int i = 0; i < 3; i++) {
       if (board[i][0] == board[i][1] &&

@@ -6,6 +6,8 @@ import 'package:super_xo/bloc/game_state.dart';
 import 'package:super_xo/core/customs/my_appbar.dart';
 
 class MetaGameView extends StatelessWidget {
+  const MetaGameView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
