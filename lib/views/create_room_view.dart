@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_xo/bloc/room_bloc.dart';
 import 'package:super_xo/bloc/room_state.dart';
-import 'package:super_xo/views/game_view.dart';
-import 'package:super_xo/views/meta_game_view.dart';
 
 class CreateRoomScreen extends StatelessWidget {
   @override
@@ -18,11 +16,6 @@ class CreateRoomScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'SuperXO',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 20),
                   Text('Your room number', style: TextStyle(fontSize: 18)),
                   SizedBox(height: 10),
                   Text(state.roomNumber,

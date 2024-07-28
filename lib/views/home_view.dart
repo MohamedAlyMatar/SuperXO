@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:super_xo/bloc/room_event.dart';
 import 'package:super_xo/core/customs/my_appbar.dart';
 import 'package:super_xo/views/create_room_view.dart';
 import 'package:super_xo/views_model/home_view_model.dart';

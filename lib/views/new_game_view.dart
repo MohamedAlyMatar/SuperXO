@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:super_xo/core/customs/my_appbar.dart';
-import 'package:super_xo/views/game_view.dart';
 import 'package:super_xo/views/meta_game_view.dart';
 import 'package:super_xo/views_model/home_view_model.dart';
 import 'package:super_xo/views_model/new_game_view_model.dart';
@@ -28,13 +27,8 @@ class NewGameView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             data.mybutton(data2.offlinePlayers, () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => GameView(
-                            i: 1,
-                            j: 1,
-                          )));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MetaGameView()));
             }),
             data.mybutton(data2.VS_AI, () {
               Navigator.push(context,

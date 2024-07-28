@@ -26,6 +26,7 @@ class MetaGameBloc extends Bloc<MetaGameEvent, MetaGameState> {
       final winner = gameRepo.checkWinner(newBoard);
       final newGame = state.game.copyWith(
         board: newBoard,
+        currentPlayer: state.game.currentPlayer == 'X' ? 'O' : 'X',
         isGameOver: winner != '',
         winner: winner,
       );
