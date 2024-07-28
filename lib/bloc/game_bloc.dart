@@ -8,13 +8,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   GameBloc(this.gameRepo) : super(GameState(game: gameRepo.initialGame())) {
     on<MoveMade>((event, emit) {
+      print('Event received: $event');
       final newGame = gameRepo.makeMove(state.game, event.row, event.col);
       emit(GameState(game: newGame));
+      print('State updated: ${GameState(game: newGame)}');
     });
 
     on<ResetGame>((event, emit) {
+      print('Event received: $event');
       final newGame = gameRepo.resetGame();
       emit(GameState(game: newGame));
+      print('State updated: ${GameState(game: newGame)}');
     });
   }
 }

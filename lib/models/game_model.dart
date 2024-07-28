@@ -2,7 +2,7 @@ class GameModel {
   final List<List<String>> board;
   final String currentPlayer;
   final bool isGameOver;
-  final String winner;
+  late final String winner;
 
   GameModel({
     required this.board,
@@ -24,4 +24,7 @@ class GameModel {
       winner: winner ?? this.winner,
     );
   }
+
+  updateMetaGame(
+      GameModel game, String winnerSymbol, List<List<String>> newBoard) {}
 }
